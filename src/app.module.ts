@@ -4,7 +4,6 @@ import { AutomapperModule } from '@automapper/nestjs';
 import { Module } from '@nestjs/common';
 import { APP_GUARD, Reflector } from '@nestjs/core';
 import { MongooseModule } from '@nestjs/mongoose';
-import { AppService } from './app.service';
 import { MongooseConfigService } from './data/mongoose-config.service';
 import { TodoModule } from './modules/todo/todo.module';
 import { UserModule } from './modules/user/user.module';
@@ -34,7 +33,6 @@ import { JwtAuthGuard } from './shared/jwt-auth.guard';
   ],
   controllers: [],
   providers: [
-    AppService,
     {
       provide: APP_GUARD,
       useFactory: (ref) => new JwtAuthGuard(ref),
